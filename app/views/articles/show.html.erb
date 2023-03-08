@@ -1,0 +1,21 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.created_at.strftime("%d-%m-%Y") %></p>
+<br>
+<p><%= @article.body %></p>
+<br>
+<br>
+<% if user_signed_in? and @article.user == current_user || current_user.admin? %>
+  <%= link_to "Edit", edit_article_path(@article) %>,
+  <%= link_to "Delete", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>,
+<% end %>
+<%= link_to "Back", articles_path %>
+<h2>Comments</h2>
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<%= render @article.comments %>
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>

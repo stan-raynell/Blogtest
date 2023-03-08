@@ -1,0 +1,18 @@
+<h1>Articles</h1>
+Our blog has <%= Article.public_count %> articles and counting!
+<ul>
+  <% @articles.each do |article| %>
+    <% if user_signed_in? and article.archived? and current_user.admin? %>
+      <li>
+        <%= link_to article.title, article %> (archived)
+      </li>
+    <% elsif !article.archived? %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<% if user_signed_in? %>
+  <%= link_to "New Article", new_article_path %>
+<% end %>
