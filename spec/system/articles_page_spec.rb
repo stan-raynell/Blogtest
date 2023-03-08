@@ -3,20 +3,20 @@ require "rails_helper"
 RSpec.describe "Articles page" do
   let!(:user) { create(:user) }
   let!(:user2) { create(:user, admin: true) }
-  let!(:article) {
+  let!(:article) do
     create(:article,
            title: "Yay!",
            body: "Go Rails and GTFO!",
            status: "public",
-           user: user)
-  }
-  let!(:article2) {
+           user:)
+  end
+  let!(:article2) do
     create(:article,
            title: "Arch test",
            body: "Archived testing",
            status: "archived",
-           user: user)
-  }
+           user:)
+  end
 
   it "should display articles" do
     visit articles_path

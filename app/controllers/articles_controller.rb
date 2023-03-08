@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
     @articles = Article.all
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    if @article.user == current_user or current_user.admin?
+    if (@article.user == current_user) || current_user.admin?
       @article.destroy
       redirect_to root_path, status: :see_other
     else

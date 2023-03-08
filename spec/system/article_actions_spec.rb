@@ -4,26 +4,26 @@ RSpec.describe "Article page" do
   let!(:user) { create(:user) }
   let!(:user2) { create(:user) }
   let!(:user3) { create(:user, admin: true) }
-  let!(:article) {
+  let!(:article) do
     create(:article,
            title: "Yay!",
            body: "Go Rails and GTFO!",
            status: "public",
-           user: user)
-  }
-  let!(:bad_article) {
+           user:)
+  end
+  let!(:bad_article) do
     build(:article,
           title: "", body: "foo",
           status: "public",
-          user: user)
-  }
-  let!(:article2) {
+          user:)
+  end
+  let!(:article2) do
     create(:article,
            title: "Comm test",
            body: "Destroy testing",
            status: "public",
            user: user2)
-  }
+  end
 
   it "should properly save new article contents" do
     login_as(user)
@@ -83,6 +83,4 @@ RSpec.describe "Article page" do
     expect(Article.count).to eq(1)
     expect(current_path).to eq(root_path)
   end
-
-
 end

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-08T17:08:12+03:00">2023-03-08T17:08:12+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-08T20:54:52+03:00">2023-03-08T20:54:52+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -95,7 +95,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ae94d66b4bf1759e45332d084b02b17acb0216da" class="src_link" title="app/controllers/comments_controller.rb">app/controllers/comments_controller.rb</a></td>
             <td class="yellow strong cell--number t-file__coverage">87.50 %</td>
-            <td class="cell--number">27</td>
+            <td class="cell--number">28</td>
             <td class="cell--number">16</td>
             <td class="cell--number">14</td>
             <td class="cell--number">2</td>
@@ -425,7 +425,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#24ea63462d3fc5947be10cc94a39c57420dcaab4" class="src_link" title="spec/system/article_actions_spec.rb">spec/system/article_actions_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">88</td>
+            <td class="cell--number">86</td>
             <td class="cell--number">56</td>
             <td class="cell--number">56</td>
             <td class="cell--number">0</td>
@@ -613,7 +613,7 @@
 
             
 
-            <code class="ruby">  skip_before_action :authenticate_user!, only: [:show, :index]</code>
+            <code class="ruby">  skip_before_action :authenticate_user!, only: %i[show index]</code>
           </li>
         </div>
       
@@ -1119,7 +1119,7 @@
 
             
 
-            <code class="ruby">    if @article.user == current_user or current_user.admin?</code>
+            <code class="ruby">    if (@article.user == current_user) || current_user.admin?</code>
           </li>
         </div>
       
@@ -1359,7 +1359,7 @@
 
             
 
-            <code class="ruby">      commenter: current_user.email, user: current_user,</code>
+            <code class="ruby">                                          commenter: current_user.email,</code>
           </li>
         </div>
       
@@ -1370,12 +1370,23 @@
 
             
 
-            <code class="ruby">    ))</code>
+            <code class="ruby">                                          user: current_user</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="7">
+          <li class="never" data-hits="" data-linenumber="7">
+            
+            
+
+            
+
+            <code class="ruby">                                        ))</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="8">
             <span class="hits">1</span>
             
 
@@ -1386,7 +1397,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
@@ -1397,7 +1408,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="never" data-hits="" data-linenumber="10">
             
             
 
@@ -1408,7 +1419,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
+          <li class="covered" data-hits="1" data-linenumber="11">
             <span class="hits">1</span>
             
 
@@ -1419,7 +1430,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="11">
+          <li class="covered" data-hits="2" data-linenumber="12">
             <span class="hits">2</span>
             
 
@@ -1430,7 +1441,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="12">
+          <li class="covered" data-hits="2" data-linenumber="13">
             <span class="hits">2</span>
             
 
@@ -1441,24 +1452,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="13">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    if @comment.user == current_user or current_user.admin?</code>
-          </li>
-        </div>
-      
-        <div>
           <li class="covered" data-hits="2" data-linenumber="14">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      @comment.destroy</code>
+            <code class="ruby">    if @comment.user == current_user || current_user.admin?</code>
           </li>
         </div>
       
@@ -1469,12 +1469,23 @@
 
             
 
+            <code class="ruby">      @comment.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
+            
+
+            
+
             <code class="ruby">      redirect_to @article, status: :see_other</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
@@ -1485,7 +1496,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="17">
+          <li class="missed" data-hits="0" data-linenumber="18">
             
             
 
@@ -1496,7 +1507,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="18">
+          <li class="missed" data-hits="0" data-linenumber="19">
             
             
 
@@ -1507,7 +1518,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -1518,7 +1529,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
+          <li class="never" data-hits="" data-linenumber="21">
             
             
 
@@ -1529,7 +1540,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
@@ -1540,7 +1551,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
+          <li class="covered" data-hits="1" data-linenumber="23">
             <span class="hits">1</span>
             
 
@@ -1551,7 +1562,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="24">
             
             
 
@@ -1562,7 +1573,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="24">
+          <li class="covered" data-hits="1" data-linenumber="25">
             <span class="hits">1</span>
             
 
@@ -1573,7 +1584,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
+          <li class="covered" data-hits="1" data-linenumber="26">
             <span class="hits">1</span>
             
 
@@ -1584,7 +1595,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
+          <li class="never" data-hits="" data-linenumber="27">
             
             
 
@@ -1595,7 +1606,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 
@@ -2126,7 +2137,7 @@
 
             
 
-            <code class="ruby">  VALID_STATUSES = [&quot;public&quot;, &quot;private&quot;, &quot;archived&quot;]</code>
+            <code class="ruby">  VALID_STATUSES = %w[public private archived].freeze</code>
           </li>
         </div>
       
@@ -6994,7 +7005,7 @@
 
             
 
-            <code class="ruby">  config.sign_out_via = [:delete, :get]</code>
+            <code class="ruby">  config.sign_out_via = %i[delete get]</code>
           </li>
         </div>
       
@@ -7575,7 +7586,7 @@
 
             
 
-            <code class="ruby">Rails.application.config.filter_parameters += [</code>
+            <code class="ruby">Rails.application.config.filter_parameters += %i[</code>
           </li>
         </div>
       
@@ -7586,7 +7597,7 @@
 
             
 
-            <code class="ruby">  :passw, :secret, :token, :_key, :crypt, :salt, :certificate, :otp, :ssn</code>
+            <code class="ruby">  passw secret token _key crypt salt certificate otp ssn</code>
           </li>
         </div>
       
@@ -8031,7 +8042,7 @@
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -8139,7 +8150,7 @@
 
             
 
-            <code class="ruby">    title {&quot;Goo&quot;}</code>
+            <code class="ruby">    title { &quot;Goo&quot; }</code>
           </li>
         </div>
       
@@ -8150,7 +8161,7 @@
 
             
 
-            <code class="ruby">    body {&quot;This is test body&quot;}</code>
+            <code class="ruby">    body { &quot;This is test body&quot; }</code>
           </li>
         </div>
       
@@ -9912,7 +9923,7 @@
 
             
 
-            <code class="ruby">  let!(:article) {</code>
+            <code class="ruby">  let!(:article) do</code>
           </li>
         </div>
       
@@ -9967,7 +9978,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -9978,7 +9989,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -9989,7 +10000,7 @@
 
             
 
-            <code class="ruby">  let!(:bad_article) {</code>
+            <code class="ruby">  let!(:bad_article) do</code>
           </li>
         </div>
       
@@ -10033,7 +10044,7 @@
 
             
 
-            <code class="ruby">          user: user)</code>
+            <code class="ruby">          user:)</code>
           </li>
         </div>
       
@@ -10044,7 +10055,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10055,7 +10066,7 @@
 
             
 
-            <code class="ruby">  let!(:article2) {</code>
+            <code class="ruby">  let!(:article2) do</code>
           </li>
         </div>
       
@@ -10121,7 +10132,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10781,28 +10792,6 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="88">
-            
-            
-
-            
-
             <code class="ruby">end</code>
           </li>
         </div>
@@ -10900,7 +10889,7 @@
 
             
 
-            <code class="ruby">  let!(:article) {</code>
+            <code class="ruby">  let!(:article) do</code>
           </li>
         </div>
       
@@ -10955,7 +10944,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -10966,7 +10955,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10977,7 +10966,7 @@
 
             
 
-            <code class="ruby">  let!(:article2) {</code>
+            <code class="ruby">  let!(:article2) do</code>
           </li>
         </div>
       
@@ -11032,7 +11021,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -11043,7 +11032,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11536,7 +11525,7 @@
 
             
 
-            <code class="ruby">  let!(:article) {</code>
+            <code class="ruby">  let!(:article) do</code>
           </li>
         </div>
       
@@ -11591,7 +11580,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -11602,7 +11591,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11613,7 +11602,7 @@
 
             
 
-            <code class="ruby">  let!(:article2) {</code>
+            <code class="ruby">  let!(:article2) do</code>
           </li>
         </div>
       
@@ -11668,7 +11657,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -11679,7 +11668,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11690,7 +11679,7 @@
 
             
 
-            <code class="ruby">  let!(:comment) {</code>
+            <code class="ruby">  let!(:comment) do</code>
           </li>
         </div>
       
@@ -11756,7 +11745,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -11767,7 +11756,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11778,7 +11767,7 @@
 
             
 
-            <code class="ruby">  let!(:comment2) {</code>
+            <code class="ruby">  let!(:comment2) do</code>
           </li>
         </div>
       
@@ -11844,7 +11833,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -11855,7 +11844,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11866,7 +11855,7 @@
 
             
 
-            <code class="ruby">  let!(:article3) {</code>
+            <code class="ruby">  let!(:article3) do</code>
           </li>
         </div>
       
@@ -11921,7 +11910,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -11932,7 +11921,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11943,7 +11932,7 @@
 
             
 
-            <code class="ruby">  let!(:comment3) {</code>
+            <code class="ruby">  let!(:comment3) do</code>
           </li>
         </div>
       
@@ -12009,7 +11998,7 @@
 
             
 
-            <code class="ruby">           user: user)</code>
+            <code class="ruby">           user:)</code>
           </li>
         </div>
       
@@ -12020,7 +12009,7 @@
 
             
 
-            <code class="ruby">  }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       

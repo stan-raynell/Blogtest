@@ -4,51 +4,51 @@ RSpec.describe "Comments" do
   let!(:user) { create(:user) }
   let!(:user2) { create(:user) }
   let!(:user3) { create(:user, admin: true) }
-  let!(:article) {
+  let!(:article) do
     create(:article,
            title: "Yay!",
            body: "Go Rails and GTFO!",
            status: "public",
-           user: user)
-  }
-  let!(:article2) {
+           user:)
+  end
+  let!(:article2) do
     create(:article,
            title: "Comm test",
            body: "Comments testing",
            status: "public",
-           user: user)
-  }
-  let!(:comment) {
+           user:)
+  end
+  let!(:comment) do
     create(:comment,
            commenter: user.email,
            body: "Just testing!",
            article: article2,
            status: "public",
-           user: user)
-  }
-  let!(:comment2) {
+           user:)
+  end
+  let!(:comment2) do
     create(:comment,
            commenter: user.email,
            body: "Archived comment",
            article: article2,
            status: "archived",
-           user: user)
-  }
-  let!(:article3) {
+           user:)
+  end
+  let!(:article3) do
     create(:article,
            title: "Admin rights",
            body: "Testing deleting",
            status: "public",
-           user: user)
-  }
-  let!(:comment3) {
+           user:)
+  end
+  let!(:comment3) do
     create(:comment,
            commenter: user.email,
            body: "Testing administrator",
            article: article3,
            status: "public",
-           user: user)
-  }
+           user:)
+  end
 
   it "allows to make a comment and saves it" do
     login_as(user)
