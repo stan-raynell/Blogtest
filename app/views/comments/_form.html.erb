@@ -1,6 +1,6 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :body, "Comment text" %><br>
     <%= form.text_area :body %>
   </p>
   <p>
@@ -9,6 +9,6 @@
     <%= form.select :status, ["public", "private", "archived"], selected: "public" %>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit 'Create Comment', class: 'btn btn-primary' %>
   </p>
 <% end %>

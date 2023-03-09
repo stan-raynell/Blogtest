@@ -1,38 +1,40 @@
 <% if user_signed_in? and comment.archived? and current_user.admin?%>
-  <p>
-    <strong>Archived Comment</strong>
-  </p>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-  <p>
-    <%= link_to "Destroy Comment", [comment.article, comment], data: {
+  <div class="p-3 bg-secondary text-warning">
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+    <hr>
+    <p>
+      <div class="text-light">Archived.</div>
+      <br>
+      <%= comment.body %>
+    </p>
+    <p>
+      <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
-                } %>
-  </p>
+                } %></span>
+    </p>
+  </div>
   <br>
 <% elsif !comment.archived? %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-  <p>
-    <% if user_signed_in? and comment.user == current_user || current_user.admin? %>
-      <%= link_to "Destroy Comment", [comment.article, comment], data: {
+  <div class="p-3 bg-light">
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+    <p>
+      <%= comment.body %>
+    </p>
+    <p>
+      <% if user_signed_in? and comment.user == current_user || current_user.admin? %>
+        <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
-                } %>
-    <% end %>
-  </p>
+                } %></span>
+      <% end %>
+    </p>
+  </div>
   <br>
 <% end %>

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Comments" do
+RSpec.describe "Comment" do
   let!(:user) { create(:user) }
   let!(:user2) { create(:user) }
   let!(:user3) { create(:user, admin: true) }
@@ -53,7 +53,7 @@ RSpec.describe "Comments" do
   it "allows to make a comment and saves it" do
     login_as(user)
     visit(article_path(article))
-    fill_in("Body", with: "A funny comment")
+    fill_in("comment_body", with: "A funny comment")
     select("public", from: "Status").select_option
     click_on("Create Comment")
     expect(article.comments).not_to be_blank
