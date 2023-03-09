@@ -22,9 +22,6 @@
   <div class="text-bg-info p-3">
     <h3>Comments</h3>
   </div>
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-  <% end %>
   <%= render @article.comments %>
   <h6>Add a comment:</h6>
   <%= render 'comments/form' %>

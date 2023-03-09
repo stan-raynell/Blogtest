@@ -11,9 +11,6 @@ class CommentsController < ApplicationController
     if @comment.user == current_user || current_user.admin?
       @comment.destroy
       redirect_to @article, status: :see_other
-    else
-      flash[:danger] = "This is not your comment!"
-      redirect_to @article
     end
   end
 

@@ -37,9 +37,6 @@ class ArticlesController < ApplicationController
       else
         render :edit, status: :unprocessable_entity
       end
-    else
-      flash[:danger] = "This is not your article!"
-      redirect_to @article
     end
   end
 
@@ -48,9 +45,6 @@ class ArticlesController < ApplicationController
     if (@article.user == current_user) || current_user.admin?
       @article.destroy
       redirect_to root_path, status: :see_other
-    else
-      flash[:danger] = "This is not your article!"
-      redirect_to @article
     end
   end
 
