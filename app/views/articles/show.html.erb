@@ -4,7 +4,7 @@
     <% if @article.archived? %>
       <h4>(Archived)</h4>
     <% end %>
-    <p><em>Written by <%=@article.user.email%>, on &nbsp;<%= @article.created_at.strftime("%d-%m-%Y") %></em></p>
+    <p><em>Written by <%= link_to @article.user.email, @article.user %>, on &nbsp;<%= @article.created_at.strftime("%d-%m-%Y") %></em></p>
   </div>
   <br>
   <p><%= @article.body %></p>

@@ -1,0 +1,15 @@
+<div class="container border py-3 my-3", style="text-align: left;">
+  <div class="text-bg-info p-3">
+<%= @user.email %>
+<% provide(:title, @user.email) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+      </h1>
+    </section>
+  </aside>
+</div>
+</div>
+</div>

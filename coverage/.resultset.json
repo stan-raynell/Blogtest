@@ -648,6 +648,7 @@
           1,
           1,
           null,
+          1,
           null
         ]
       },
@@ -688,6 +689,20 @@
           null
         ]
       },
+      "/home/stronge/blog/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
       "/home/stronge/blog/spec/support/devise.rb": {
         "lines": [
           1,
@@ -704,6 +719,25 @@
           1,
           21,
           null,
+          null
+        ]
+      },
+      "/home/stronge/blog/spec/helpers/users_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
           null
         ]
       },
@@ -744,7 +778,7 @@
           null,
           null,
           1,
-          42,
+          61,
           null,
           null
         ]
@@ -759,6 +793,17 @@
         ]
       },
       "/home/stronge/blog/spec/requests/comments_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/stronge/blog/spec/requests/users_spec.rb": {
         "lines": [
           1,
           null,
@@ -946,15 +991,6 @@
           null,
           null,
           null,
-          null,
-          1,
-          8,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           8,
           null,
@@ -965,6 +1001,12 @@
           1,
           8,
           null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          8,
           null,
           null,
           null,
@@ -1125,9 +1167,6 @@
           1,
           1,
           1,
-          null,
-          null,
-          null,
           1,
           null,
           null,
@@ -1152,6 +1191,6 @@
         ]
       }
     },
-    "timestamp": 1678366496
+    "timestamp": 1678376879
   }
 }

@@ -1,8 +1,8 @@
 <% if user_signed_in? and comment.archived? and current_user.admin?%>
   <div class="p-3 bg-secondary text-warning">
     <p>
-      <strong>Commenter:</strong>
-      <%= comment.commenter %>
+      <strong>Commented by:</strong>
+      <%= link_to comment.user.email, comment.user %>
     </p>
     <hr>
     <p>
@@ -21,8 +21,8 @@
 <% elsif !comment.archived? %>
   <div class="p-3 bg-light">
     <p>
-      <strong>Commenter:</strong>
-      <%= comment.commenter %>
+      <strong>Commented by:</strong>
+      <%= link_to comment.user.email, comment.user %>
     </p>
     <p>
       <%= comment.body %>

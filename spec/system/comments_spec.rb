@@ -20,19 +20,17 @@ RSpec.describe "Comment" do
   end
   let!(:comment) do
     create(:comment,
-           commenter: user.email,
+           user: user,
            body: "Just testing!",
            article: article2,
-           status: "public",
-           user:)
+           status: "public")
   end
   let!(:comment2) do
     create(:comment,
-           commenter: user.email,
            body: "Archived comment",
            article: article2,
            status: "archived",
-           user:)
+           user: user)
   end
   let!(:article3) do
     create(:article,
@@ -43,11 +41,10 @@ RSpec.describe "Comment" do
   end
   let!(:comment3) do
     create(:comment,
-           commenter: user.email,
+           user: user,
            body: "Testing administrator",
            article: article3,
-           status: "public",
-           user:)
+           status: "public")
   end
 
   it "allows to make a comment and saves it" do

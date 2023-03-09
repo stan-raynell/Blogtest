@@ -1,10 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params.merge(
-                                          commenter: current_user.email,
-                                          user: current_user
-                                        ))
+    @comment = @article.comments.create(comment_params.merge(user: current_user))
     redirect_to @article
   end
 

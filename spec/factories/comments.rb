@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    commenter {}
+    user {}
     body {}
-    article_id {}
+    article {}
   end
 end
