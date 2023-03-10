@@ -24,7 +24,20 @@ RSpec.describe "Article page" do
            status: "public",
            user: user2)
   end
-
+  let!(:article3) do
+    create(:article,
+           title: "Priv test",
+           body: "Private testing",
+           status: "private",
+           user: user)
+  end
+  let!(:article4) do
+    create(:article,
+           title: "Arch test",
+           body: "Archived testing",
+           status: "archived",
+           user: user)
+  end
   it "should properly save new article contents" do
     sign_in(user)
     visit new_article_path
@@ -58,7 +71,7 @@ RSpec.describe "Article page" do
     sign_in(user)
     visit article_path(article)
     click_on("Delete")
-    expect(Article.count).to eq(1)
+    expect(Article.count).to eq(3)
     expect(current_path).to eq(root_path)
   end
 
@@ -80,7 +93,37 @@ RSpec.describe "Article page" do
     sign_in(user3)
     visit article_path(article)
     click_on("Delete")
-    expect(Article.count).to eq(1)
+    expect(Article.count).to eq(3)
     expect(current_path).to eq(root_path)
+  end
+
+  it "should allow users to view their private articles" do
+    sign_in(user)
+    visit article_path(article3)
+    expect(current_path).to eq(article_path(article3))
+  end
+
+  it "should not allow other users to view private articles" do
+    sign_in(user2)
+    visit article_path(article3)
+    expect(current_path).to eq(root_path)
+  end
+
+  it "should not allow non-admins to view archived articles" do
+    sign_in(user2)
+    visit article_path(article4)
+    expect(current_path).to eq(root_path)
+  end
+
+  it "should allow admins to view archived articles" do
+    sign_in(user3)
+    visit article_path(article4)
+    expect(current_path).to eq(article_path(article4))
+  end
+
+  it "should allow admins to view any private articles" do
+    sign_in(user3)
+    visit article_path(article3)
+    expect(current_path).to eq(article_path(article3))
   end
 end

@@ -1,8 +1,19 @@
+<% if !user_signed_in? and !@article.public? %>
+  <% controller.redirect_to root_path %>
+<% elsif user_signed_in? and @article.private? %>
+  <% unless current_user == @article.user or current_user.admin? %>
+    <% controller.redirect_to root_path %>
+  <% end %>
+<% elsif user_signed_in? and @article.archived? %>
+  <% controller.redirect_to root_path unless current_user.admin? %>
+<% end %>
 <div class="container border py-3 my-3", style="text-align: left;">
   <div class="text-bg-info p-3">
     <h2><%= @article.title %></h2>
     <% if @article.archived? %>
       <h4>(Archived)</h4>
+    <% elsif @article.private? %>
+      <h4>(Private)</h4>
     <% end %>
     <p><em>Written by <%= link_to @article.user.email, @article.user %>, on &nbsp;<%= @article.created_at.strftime("%d-%m-%Y") %></em></p>
   </div>
