@@ -26,7 +26,7 @@ RSpec.describe "Article page" do
   end
 
   it "should properly save new article contents" do
-    login_as(user)
+    sign_in(user)
     visit new_article_path
     fill_in("Title", with: "Stoned")
     fill_in("Body", with: "I'm so fucking stoned!")
@@ -41,7 +41,7 @@ RSpec.describe "Article page" do
   end
 
   it "should allow to edit your article" do
-    login_as(user)
+    sign_in(user)
     visit article_path(article)
     click_on("Edit")
     expect(current_path).to eq(edit_article_path(article))
@@ -55,7 +55,7 @@ RSpec.describe "Article page" do
   end
 
   it "should allow to delete your article" do
-    login_as(user)
+    sign_in(user)
     visit article_path(article)
     click_on("Delete")
     expect(Article.count).to eq(1)
@@ -63,21 +63,21 @@ RSpec.describe "Article page" do
   end
 
   it "should not display article controls to another user" do
-    login_as(user)
+    sign_in(user)
     visit article_path(article2)
     expect(page).not_to have_content("Delete")
     expect(page).not_to have_content("Edit")
   end
 
   it "should diplay any article controls to admins" do
-    login_as(user3)
+    sign_in(user3)
     visit article_path(article)
     expect(page).to have_content("Delete")
     expect(page).to have_content("Edit")
   end
 
   it "should allow admin to delete any article" do
-    login_as(user3)
+    sign_in(user3)
     visit article_path(article)
     click_on("Delete")
     expect(Article.count).to eq(1)

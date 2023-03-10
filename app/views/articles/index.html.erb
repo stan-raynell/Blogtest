@@ -1,23 +1,31 @@
 <hr>
 <div class="container border py-3 my-3", style="text-align: left;">
   <div class="text-bg-info p-3">
-<h1>Articles</h1>
-Our blog has <%= Article.public_count %> articles and counting!</div></div>
-<div class="container border py-3 my-3", style="text-align: left;"><ul class="list">
-  <% @articles.each do |article| %>
-    <% if user_signed_in? and article.archived? and current_user.admin? %>
-      <li class="list-item">
-        <%= link_to article.title, article %> (archived)
-      </li>
-    <% elsif !article.archived? %>
-      <li class="list-item">
-        <%= link_to article.title, article %>
-      </li>
+    <h1>Articles</h1>
+    Our blog has <%= Article.public_count %> articles and counting!</div>
+</div>
+<div class="container border py-3 my-3", style="text-align: left;">
+  <ul class="list">
+    <% unless Article.count == 0 %>
+      <% @articles.each do |article| %>
+        <% if user_signed_in? and article.archived? and current_user.admin? %>
+          <li class="list-item">
+            <h4><%= link_to article.title, article %> (archived)</h4>
+            <small><%= link_to "By: #{article.user.email}", article.user %></small>
+          </li>
+          <br>
+        <% elsif !article.archived? %>
+          <li class="list-item">
+            <h4><%= link_to article.title, article %></h4>
+            <small><%= link_to "By: #{article.user.email}", article.user %></small>
+          </li>
+          <br>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-<% if user_signed_in? %>
-  <br>
-  <span class="badge text-bg-warning"><%= link_to "New Article", new_article_path %></span>
-  <br>
-<% end %></div>
+  </ul>
+  <% if user_signed_in? %>
+    <br>
+    <span class="badge text-bg-warning"><%= link_to "New Article", new_article_path %></span>
+    <br>
+  <% end %></div>

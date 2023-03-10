@@ -30,7 +30,7 @@ RSpec.describe "Articles page" do
   end
 
   it "should redirect to article creation page" do
-    login_as(user)
+    sign_in(user)
     visit articles_path
     click_on("New Article")
     expect(current_path).to eq(new_article_path)
@@ -47,8 +47,16 @@ RSpec.describe "Articles page" do
   end
 
   it "should display archived articles for admins" do
-    login_as(user2)
+    sign_in(user2)
     visit articles_path
     expect(page).to have_content("Arch test")
+  end
+
+  it "should display a link to the users list" do
+    sign_in(user)
+    visit articles_path
+    expect(page).to have_link("Users")
+    click_on("Users")
+    expect(current_path).to eq(users_path)
   end
 end

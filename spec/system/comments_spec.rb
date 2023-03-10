@@ -48,7 +48,7 @@ RSpec.describe "Comment" do
   end
 
   it "allows to make a comment and saves it" do
-    login_as(user)
+    sign_in(user)
     visit(article_path(article))
     fill_in("comment_body", with: "A funny comment")
     select("public", from: "Status").select_option
@@ -69,32 +69,32 @@ RSpec.describe "Comment" do
   end
 
   it "allows to delete comments" do
-    login_as(user)
+    sign_in(user)
     visit(article_path(article2))
     click_on("Destroy Comment")
     expect(page).not_to have_content("Just testing!")
   end
 
   it "should not display delete controls to another user" do
-    login_as(user2)
+    sign_in(user2)
     visit(article_path(article2))
     expect(page).not_to have_content("Destroy")
   end
 
   it "should display archived comments to admins" do
-    login_as(user3)
+    sign_in(user3)
     visit(article_path(article2))
     expect(page).to have_content("Archived comment")
   end
 
   it "should display delete controls for all comments to admins" do
-    login_as(user3)
+    sign_in(user3)
     visit(article_path(article3))
     expect(page).to have_content("Destroy")
   end
 
   it "should allow admins to delete any comments" do
-    login_as(user3)
+    sign_in(user3)
     visit(article_path(article3))
     click_on("Destroy Comment")
     expect(page).not_to have_content("Testing administrator")

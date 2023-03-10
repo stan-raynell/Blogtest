@@ -8,6 +8,9 @@
       <div class="navbar-nav">
         <%= link_to "Home", articles_path, class: "nav-link" %>
       </div>
+      <div class="navbar-nav">
+        <%= link_to "Users", users_path, class: "nav-link" %>
+      </div>
       <div class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           Logged in as &nbsp;<strong><%= current_user.email %></strong>.&nbsp;
