@@ -31,21 +31,21 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
-    if @article.user_id == current_user.id
-      if @article.update(article_params)
-        redirect_to @article
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    return unless @article.user_id == current_user.id
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @article = Article.find(params[:id])
-    if (@article.user == current_user) || current_user.admin?
-      @article.destroy
-      redirect_to root_path, status: :see_other
-    end
+    return unless (@article.user == current_user) || current_user.admin?
+
+    @article.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private

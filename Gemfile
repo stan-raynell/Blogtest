@@ -48,6 +48,6 @@ gem "cssbundling-rails", "~> 1.1"
 gem "jsbundling-rails", "~> 1.1"
 
 # Use Redis for Action Cable
-gem "redis", "~> 4.0"
-gem "bootstrap-sass"
 gem "autoprefixer-rails"
+gem "bootstrap-sass"
+gem "redis", "~> 4.0"
