@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Comment" do
-  let!(:user) { create(:user) }
+  let!(:user1) { create(:user) }
   let!(:user2) { create(:user) }
   let!(:user3) { create(:user, admin: true) }
   let!(:article) do
@@ -9,18 +9,18 @@ RSpec.describe "Comment" do
            title: "Yay!",
            body: "Go Rails and GTFO!",
            status: "public",
-           user:)
+           user: user1)
   end
   let!(:article2) do
     create(:article,
            title: "Comm test",
            body: "Comments testing",
            status: "public",
-           user:)
+           user: user1)
   end
   let!(:comment) do
     create(:comment,
-           user: user,
+           user: user1,
            body: "Just testing!",
            article: article2,
            status: "public")
@@ -30,25 +30,25 @@ RSpec.describe "Comment" do
            body: "Archived comment",
            article: article2,
            status: "archived",
-           user: user)
+           user: user1)
   end
   let!(:article3) do
     create(:article,
            title: "Admin rights",
            body: "Testing deleting",
            status: "public",
-           user:)
+           user: user1)
   end
   let!(:comment3) do
     create(:comment,
-           user: user,
+           user: user1,
            body: "Testing administrator",
            article: article3,
            status: "public")
   end
 
   it "allows to make a comment and saves it" do
-    sign_in(user)
+    sign_in(user1)
     visit(article_path(article))
     fill_in("comment_body", with: "A funny comment")
     select("public", from: "Status").select_option
@@ -69,7 +69,7 @@ RSpec.describe "Comment" do
   end
 
   it "allows to delete comments" do
-    sign_in(user)
+    sign_in(user1)
     visit(article_path(article2))
     click_on("Destroy Comment")
     expect(page).not_to have_content("Just testing!")

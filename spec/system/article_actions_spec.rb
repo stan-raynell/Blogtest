@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Article page" do
-  let!(:user) { create(:user) }
+  let!(:user1) { create(:user) }
   let!(:user2) { create(:user) }
   let!(:user3) { create(:user, admin: true) }
   let!(:article) do
@@ -9,13 +9,13 @@ RSpec.describe "Article page" do
            title: "Yay!",
            body: "Go Rails and GTFO!",
            status: "public",
-           user:)
+           user: user1)
   end
   let!(:bad_article) do
     build(:article,
           title: "", body: "foo",
           status: "public",
-          user:)
+          user: user1)
   end
   let!(:article2) do
     create(:article,
@@ -29,17 +29,17 @@ RSpec.describe "Article page" do
            title: "Priv test",
            body: "Private testing",
            status: "private",
-           user: user)
+           user: user1)
   end
   let!(:article4) do
     create(:article,
            title: "Arch test",
            body: "Archived testing",
            status: "archived",
-           user: user)
+           user: user1)
   end
   it "should properly save new article contents" do
-    sign_in(user)
+    sign_in(user1)
     visit new_article_path
     fill_in("Title", with: "Stoned")
     fill_in("Body", with: "I'm so fucking stoned!")
@@ -54,7 +54,7 @@ RSpec.describe "Article page" do
   end
 
   it "should allow to edit your article" do
-    sign_in(user)
+    sign_in(user1)
     visit article_path(article)
     click_on("Edit")
     expect(current_path).to eq(edit_article_path(article))
@@ -68,7 +68,7 @@ RSpec.describe "Article page" do
   end
 
   it "should allow to delete your article" do
-    sign_in(user)
+    sign_in(user1)
     visit article_path(article)
     click_on("Delete")
     expect(Article.count).to eq(3)
@@ -76,7 +76,7 @@ RSpec.describe "Article page" do
   end
 
   it "should not display article controls to another user" do
-    sign_in(user)
+    sign_in(user1)
     visit article_path(article2)
     expect(page).not_to have_content("Delete")
     expect(page).not_to have_content("Edit")
@@ -98,7 +98,7 @@ RSpec.describe "Article page" do
   end
 
   it "should allow users to view their private articles" do
-    sign_in(user)
+    sign_in(user1)
     visit article_path(article3)
     expect(current_path).to eq(article_path(article3))
   end

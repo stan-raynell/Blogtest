@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Articles page" do
-  let!(:user) { create(:user) }
+  let!(:user1) { create(:user) }
   let!(:user2) { create(:user, admin: true) }
   let!(:user3) { create(:user) }
   let!(:article) do
@@ -9,21 +9,21 @@ RSpec.describe "Articles page" do
            title: "Yay!",
            body: "Go Rails and GTFO!",
            status: "public",
-           user: user)
+           user: user1)
   end
   let!(:article2) do
     create(:article,
            title: "Arch test",
            body: "Archived testing",
            status: "archived",
-           user: user)
+           user: user1)
   end
   let!(:article3) do
     create(:article,
            title: "Priv test",
            body: "Private testing",
            status: "private",
-           user: user)
+           user: user1)
   end
 
   it "should display articles" do
@@ -38,7 +38,7 @@ RSpec.describe "Articles page" do
   end
 
   it "should redirect to article creation page" do
-    sign_in(user)
+    sign_in(user1)
     visit articles_path
     click_on("New Article")
     expect(current_path).to eq(new_article_path)
@@ -61,7 +61,7 @@ RSpec.describe "Articles page" do
   end
 
   it "should display a link to the users list" do
-    sign_in(user)
+    sign_in(user1)
     visit articles_path
     expect(page).to have_link("Users")
     click_on("Users")
@@ -69,10 +69,10 @@ RSpec.describe "Articles page" do
   end
 
   it "should display private articles to authors only" do
-    sign_in(user)
+    sign_in(user1)
     visit articles_path
     expect(page).to have_content("Priv test")
-    sign_out(user)
+    sign_out(user1)
     visit articles_path
     expect(page).not_to have_content("Priv test")
     sign_in(user3)
