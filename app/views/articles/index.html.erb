@@ -7,29 +7,23 @@
 <div class="container border py-3 my-3", style="text-align: left;">
   <ul class="list">
     <% @articles.each do |article| %>
-      <% if user_signed_in? %>
-        <% if article.archived? and current_user.admin? %>
-          <li class="list-item">
-            <h4><%= link_to article.title, article %> (archived)</h4>
-            <small><%= link_to "By: #{article.user.email}", article.user %></small>
-          </li>
-          <br>
-        <% elsif article.private? and current_user.admin? || current_user == article.user %>
-          <li class="list-item">
-            <h4><%= link_to article.title, article %> (private)</h4>
-            <small><%= link_to "By: #{article.user.email}", article.user %></small>
-          </li>
-          <br>
-        <% elsif article.public? %>
-          <li class="list-item">
-            <h4><%= link_to article.title, article %></h4>
-            <small><%= link_to "By: #{article.user.email}", article.user %></small>
-          </li>
-          <br>
-        <% end %>
-      <% elsif article.public? %>
+      <% if article.public? %>
         <li class="list-item">
           <h4><%= link_to article.title, article %></h4>
+          <small><%= link_to "By: #{article.user.email}", article.user %></small>
+        </li>
+        <br>
+      <% end %>
+      <% next unless user_signed_in? %>
+      <% if article.archived? and current_user.admin? %>
+        <li class="list-item">
+          <h4><%= link_to article.title, article %> (archived)</h4>
+          <small><%= link_to "By: #{article.user.email}", article.user %></small>
+        </li>
+        <br>
+      <% elsif article.private? and current_user.admin? || (current_user == article.user) %>
+        <li class="list-item">
+          <h4><%= link_to article.title, article %> (private)</h4>
           <small><%= link_to "By: #{article.user.email}", article.user %></small>
         </li>
         <br>
@@ -41,4 +35,3 @@
     <span class="badge text-bg-warning"><%= link_to "New Article", new_article_path %></span>
     <br>
   <% end %></div>
-

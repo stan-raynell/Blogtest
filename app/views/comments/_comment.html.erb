@@ -1,24 +1,4 @@
-<% if user_signed_in? and comment.archived? and current_user.admin?%>
-  <div class="p-3 bg-secondary text-warning">
-    <p>
-      <strong>Commented by:</strong>
-      <%= link_to comment.user.email, comment.user %>
-    </p>
-    <hr>
-    <p>
-      <div class="text-light">Archived.</div>
-      <br>
-      <%= comment.body %>
-    </p>
-    <p>
-      <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                } %></span>
-    </p>
-  </div>
-  <br>
-<% elsif !comment.archived? %>
+<% if comment.public? %>
   <div class="p-3 bg-light">
     <p>
       <strong>Commented by:</strong>
@@ -28,7 +8,7 @@
       <%= comment.body %>
     </p>
     <p>
-      <% if user_signed_in? and comment.user == current_user || current_user.admin? %>
+      <% if user_signed_in? and (comment.user == current_user) || current_user.admin? %>
         <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
@@ -37,4 +17,48 @@
     </p>
   </div>
   <br>
+<% end %>
+<% if user_signed_in? %>
+  <% if comment.archived? and current_user.admin? %>
+    <div class="p-3 bg-secondary text-warning">
+      <p>
+        <strong>Commented by:</strong>
+        <%= link_to comment.user.email, comment.user %>
+      </p>
+      <hr>
+      <p>
+        <div class="text-light">Archived.</div>
+        <br>
+        <%= comment.body %>
+      </p>
+      <p>
+        <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %></span>
+      </p>
+    </div>
+    <br>
+  <% elsif comment.private? and (comment.user == current_user) || current_user.admin? %>
+  <div class="p-3 bg-secondary text-light">
+      <p>
+        Commented by:
+        <%= link_to comment.user.email, comment.user %>
+      </p>
+      <hr>
+      <p>
+        Private.
+        <br>
+        <br>
+        <%= comment.body %>
+      </p>
+      <p>
+        <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %></span>
+      </p>
+    </div>
+    <br>
+  <% end %>
 <% end %>
