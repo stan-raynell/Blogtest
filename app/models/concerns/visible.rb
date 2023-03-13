@@ -13,15 +13,9 @@ module Visible
     end
   end
 
-  def archived?
-    status == "archived"
-  end
-
-  def public?
-    status == "public"
-  end
-
-  def private?
-    status == "private"
+  %i[archived? public? private?].each do |name|
+    define_method name do
+      status == name.to_s.chop
+    end
   end
 end
