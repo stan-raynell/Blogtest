@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand">Navigation</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+    aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -17,8 +19,10 @@
           <%= link_to "Logout", destroy_user_session_path, 
       data: { turbo_method: :delete }, :class => 'navbar-link' %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Sign in", new_user_session_path, :class => 'navbar-link'  %>
+          <%= link_to "Sign up", new_user_registration_path, 
+          :class => 'navbar-link'  %>
+          <%= link_to "Sign in", new_user_session_path, 
+          :class => 'navbar-link'  %>
         <% end %>
       </div>
     </div>
