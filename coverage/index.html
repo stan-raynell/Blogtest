@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-14T11:38:04+03:00">2023-03-14T11:38:04+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-14T12:38:29+03:00">2023-03-14T12:38:29+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.85
+         2.86
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>468</b> relevant lines,
-    <span class="green"><b>465</b> lines covered</span> and
+    <b>471</b> relevant lines,
+    <span class="green"><b>468</b> lines covered</span> and
     <span class="red"><b>3</b> lines missed. </span>
     (<span class="green">
   99.36%
@@ -110,7 +110,7 @@
             <td class="cell--number">10</td>
             <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.10</td>
+            <td class="cell--number">2.20</td>
             
           </tr>
         
@@ -363,7 +363,7 @@
             <td class="cell--number">5</td>
             <td class="cell--number">5</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">58.80</td>
+            <td class="cell--number">59.80</td>
             
           </tr>
         
@@ -462,7 +462,7 @@
             <td class="cell--number">3</td>
             <td class="cell--number">3</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">13.33</td>
+            <td class="cell--number">13.67</td>
             
           </tr>
         
@@ -513,11 +513,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#22042acb1a40bdbf033679dcc9f9fa4124a0007d" class="src_link" title="spec/system/users_index_spec.rb">spec/system/users_index_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">24</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">18</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">21</td>
+            <td class="cell--number">21</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.22</td>
+            <td class="cell--number">1.29</td>
             
           </tr>
         
@@ -1637,8 +1637,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="7">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="7">
+            <span class="hits">4</span>
             
 
             
@@ -8675,8 +8675,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="110" data-linenumber="3">
-            <span class="hits">110</span>
+          <li class="covered" data-hits="112" data-linenumber="3">
+            <span class="hits">112</span>
             
 
             
@@ -8686,8 +8686,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="110" data-linenumber="4">
-            <span class="hits">110</span>
+          <li class="covered" data-hits="112" data-linenumber="4">
+            <span class="hits">112</span>
             
 
             
@@ -8697,8 +8697,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="72" data-linenumber="5">
-            <span class="hits">72</span>
+          <li class="covered" data-hits="73" data-linenumber="5">
+            <span class="hits">73</span>
             
 
             
@@ -10406,8 +10406,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="38" data-linenumber="3">
-            <span class="hits">38</span>
+          <li class="covered" data-hits="39" data-linenumber="3">
+            <span class="hits">39</span>
             
 
             
@@ -13596,7 +13596,7 @@
 
             
 
-            <code class="ruby">  let!(:user2) { create(:user, admin: true) }</code>
+            <code class="ruby">  let!(:user2) { create(:user) }</code>
           </li>
         </div>
       
@@ -13607,7 +13607,7 @@
 
             
 
-            <code class="ruby">  let!(:user3) { create(:user) }</code>
+            <code class="ruby">  let!(:user_adm) { create(:user, admin: true) }</code>
           </li>
         </div>
       
@@ -13618,7 +13618,7 @@
 
             
 
-            <code class="ruby">  let!(:article) do</code>
+            <code class="ruby">  let!(:article_pub) do</code>
           </li>
         </div>
       
@@ -13772,7 +13772,7 @@
 
             
 
-            <code class="ruby">  let!(:article3) do</code>
+            <code class="ruby">  let!(:article_priv) do</code>
           </li>
         </div>
       
@@ -13882,7 +13882,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(article.title)</code>
+            <code class="ruby">    expect(page).to have_content(article_pub.title)</code>
           </li>
         </div>
       
@@ -13937,7 +13937,7 @@
 
             
 
-            <code class="ruby">    click_on(article.title)</code>
+            <code class="ruby">    click_on(article_pub.title)</code>
           </li>
         </div>
       
@@ -14179,7 +14179,7 @@
 
             
 
-            <code class="ruby">    sign_in(user2)</code>
+            <code class="ruby">    sign_in(user_adm)</code>
           </li>
         </div>
       
@@ -14399,7 +14399,7 @@
 
             
 
-            <code class="ruby">    sign_in(user3)</code>
+            <code class="ruby">    sign_in(user2)</code>
           </li>
         </div>
       
@@ -14454,7 +14454,7 @@
 
             
 
-            <code class="ruby">    sign_in(user2)</code>
+            <code class="ruby">    sign_in(user_adm)</code>
           </li>
         </div>
       
@@ -14595,7 +14595,7 @@
 
             
 
-            <code class="ruby">  let!(:user2) { create(:user, admin: true) }</code>
+            <code class="ruby">  let!(:user_adm) { create(:user, admin: true) }</code>
           </li>
         </div>
       
@@ -14738,7 +14738,7 @@
 
             
 
-            <code class="ruby">    visit(user_path(user2))</code>
+            <code class="ruby">    visit(user_path(user_adm))</code>
           </li>
         </div>
       
@@ -14793,7 +14793,7 @@
 
             
 
-            <code class="ruby">    sign_in(user2)</code>
+            <code class="ruby">    sign_in(user_adm)</code>
           </li>
         </div>
       
@@ -14948,8 +14948,8 @@
     
 
     <div class="t-line-summary">
-      <b>18</b> relevant lines.
-      <span class="green"><b>18</b> lines covered</span> and
+      <b>21</b> relevant lines.
+      <span class="green"><b>21</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -14994,8 +14994,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="4">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="4">
+            <span class="hits">4</span>
             
 
             
@@ -15005,13 +15005,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="5">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="5">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">  let!(:user2) { create(:user, admin: true) }</code>
+            <code class="ruby">  let!(:user_adm) { create(:user, admin: true) }</code>
           </li>
         </div>
       
@@ -15077,7 +15077,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(user2.email)</code>
+            <code class="ruby">    expect(page).to have_content(user_adm.email)</code>
           </li>
         </div>
       
@@ -15132,7 +15132,7 @@
 
             
 
-            <code class="ruby">  it &quot;should display delete controls for admins&quot; do</code>
+            <code class="ruby">  it &quot;should display controls and allow admins to delete users&quot; do</code>
           </li>
         </div>
       
@@ -15143,7 +15143,7 @@
 
             
 
-            <code class="ruby">    sign_in(user2)</code>
+            <code class="ruby">    sign_in(user_adm)</code>
           </li>
         </div>
       
@@ -15165,7 +15165,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(&quot;Delete user&quot;)</code>
+            <code class="ruby">    click_on(&quot;Delete user&quot;, match: :first)</code>
           </li>
         </div>
       
@@ -15176,7 +15176,7 @@
 
             
 
-            <code class="ruby">    click_on(&quot;Delete user&quot;, match: :first)</code>
+            <code class="ruby">    expect(page).not_to have_content(user1.email)</code>
           </li>
         </div>
       
@@ -15187,23 +15187,12 @@
 
             
 
-            <code class="ruby">    expect(page).not_to have_content(user1.email)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">    expect(User.count).to eq(1)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
@@ -15214,7 +15203,73 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="24">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  it &quot;should not display delete controls to regular users&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    sign_in(user1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit(users_path)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).not_to have_content(&quot;Delete user&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 

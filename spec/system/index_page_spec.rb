@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe "Articles page" do
   let!(:user1) { create(:user) }
-  let!(:user2) { create(:user, admin: true) }
-  let!(:user3) { create(:user) }
-  let!(:article) do
+  let!(:user2) { create(:user) }
+  let!(:user_adm) { create(:user, admin: true) }
+  let!(:article_pub) do
     create(:article,
            title: "Yay!",
            body: "Go Rails and GTFO!",
@@ -18,7 +18,7 @@ RSpec.describe "Articles page" do
            status: "archived",
            user: user1)
   end
-  let!(:article3) do
+  let!(:article_priv) do
     create(:article,
            title: "Priv test",
            body: "Private testing",
@@ -28,12 +28,12 @@ RSpec.describe "Articles page" do
 
   it "should display articles" do
     visit articles_path
-    expect(page).to have_content(article.title)
+    expect(page).to have_content(article_pub.title)
   end
 
   it "should allow to open an article" do
     visit articles_path
-    click_on(article.title)
+    click_on(article_pub.title)
     expect(page).to have_content("Go Rails and GTFO!")
   end
 
@@ -55,7 +55,7 @@ RSpec.describe "Articles page" do
   end
 
   it "should display archived articles for admins" do
-    sign_in(user2)
+    sign_in(user_adm)
     visit articles_path
     expect(page).to have_content("Arch test")
   end
@@ -75,12 +75,12 @@ RSpec.describe "Articles page" do
     sign_out(user1)
     visit articles_path
     expect(page).not_to have_content("Priv test")
-    sign_in(user3)
+    sign_in(user2)
     expect(page).not_to have_content("Priv test")
   end
 
   it "should display private articles to admins" do
-    sign_in(user2)
+    sign_in(user_adm)
     visit articles_path
     expect(page).to have_content("Priv test")
     expect(page).to have_content("private")
