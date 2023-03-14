@@ -7,14 +7,9 @@
     <p>
       <%= comment.body %>
     </p>
-    <p>
       <% if user_signed_in? and (comment.user == current_user) || current_user.admin? %>
-        <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                } %></span>
+        <%= render partial: "comments/controls", :locals => {comment: comment } %>
       <% end %>
-    </p>
   </div>
   <br>
 <% end %>
@@ -31,12 +26,7 @@
         <br>
         <%= comment.body %>
       </p>
-      <p>
-        <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                } %></span>
-      </p>
+        <%= render partial: "comments/controls", :locals => {comment: comment } %>
     </div>
     <br>
   <% elsif comment.private? and (comment.user == current_user) || current_user.admin? %>
@@ -52,12 +42,7 @@
         <br>
         <%= comment.body %>
       </p>
-      <p>
-        <span class="badge text-bg-warning"><%= link_to "Destroy Comment", [comment.article, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                } %></span>
-      </p>
+        <%= render partial: "comments/controls", :locals => {comment: comment } %>
     </div>
     <br>
   <% end %>

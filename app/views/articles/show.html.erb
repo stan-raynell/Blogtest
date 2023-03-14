@@ -21,14 +21,17 @@
   <p><%= @article.body %></p>
   <br>
   <br>
-  <span class="badge text-bg-warning"><% if user_signed_in? and @article.user == current_user || current_user.admin? %>
+  <span class="badge text-bg-warning">
+    <% if user_signed_in? and @article.user == current_user || current_user.admin? %>
       <%= link_to "Edit", edit_article_path(@article) %>,
       <%= link_to "Delete", article_path(@article), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>,
     <% end %>
-    <%= link_to "Back", articles_path %></span></div>
+    <%= link_to "Back", articles_path %>
+  </span>
+</div>
 <div class="container border py-3 my-3", style="text-align: left;">
   <div class="text-bg-info p-3">
     <h3>Comments</h3>

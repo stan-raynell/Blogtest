@@ -25,20 +25,6 @@ RSpec.describe "Public comments interface" do
            article: article_pub2,
            status: "public")
   end
-  let!(:article_pub3) do
-    create(:article,
-           title: "Admin rights",
-           body: "Testing deleting",
-           status: "public",
-           user: user1)
-  end
-  let!(:comment_pub2) do
-    create(:comment,
-           user: user1,
-           body: "Testing administrator",
-           article: article_pub3,
-           status: "public")
-  end
 
   it "allows to make a comment and saves it" do
     sign_in(user1)
@@ -71,53 +57,90 @@ RSpec.describe "Public comments interface" do
 
   it "should display delete controls for all comments to admins" do
     sign_in(user_adm)
-    visit(article_path(article_pub3))
+    visit(article_path(article_pub2))
     expect(page).to have_content("Destroy")
   end
 
   it "should allow admins to delete any comments" do
     sign_in(user_adm)
-    visit(article_path(article_pub3))
+    visit(article_path(article_pub2))
     click_on("Destroy Comment")
-    expect(page).not_to have_content("Testing administrator")
+    expect(page).not_to have_content("Just testing!")
   end
 end
 
-describe "Archived comments interface" do
+describe "Archived and private comments interface" do
   let!(:user1) { create(:user) }
+  let!(:user2) { create(:user) }
   let!(:user_adm) { create(:user, admin: true) }
-  let!(:article_pub) do
+  let!(:article_pub1) do
     create(:article,
            title: "Comm test",
            body: "Comments testing",
            status: "public",
            user: user1)
   end
-  let!(:comment_pub) do
-    create(:comment,
-           user: user1,
-           body: "Just testing!",
-           article: article_pub,
-           status: "public")
+  let!(:article_pub2) do
+    create(:article,
+           title: "Comm test",
+           body: "Comments testing",
+           status: "public",
+           user: user1)
   end
   let!(:comment_arch) do
     create(:comment,
            body: "Archived comment",
-           article: article_pub,
+           article: article_pub1,
            status: "archived",
            user: user1)
   end
-  it "should not display archived comments" do
-    visit(article_path(article_pub))
+  let!(:comment_priv) do
+    create(:comment,
+           body: "Private comment",
+           article: article_pub2,
+           status: "private",
+           user: user1)
+  end
+  it "should not display archived comments to regular users" do
+    visit(article_path(article_pub1))
     expect(page).not_to have_content("Archived comment")
     sign_in(user1)
-    visit(article_path(article_pub))
+    visit(article_path(article_pub1))
     expect(page).not_to have_content("Archived comment")
   end
 
   it "should display archived comments to admins" do
     sign_in(user_adm)
-    visit(article_path(article_pub))
+    visit(article_path(article_pub1))
     expect(page).to have_content("Archived comment")
+  end
+
+  it "should allow admins to delete archived comments" do
+    sign_in(user_adm)
+    visit(article_path(article_pub1))
+    click_on("Destroy Comment")
+    expect(page).not_to have_content("Archived comment")
+  end
+
+  it "should display private comments only to their authors" do
+    sign_in(user1)
+    visit(article_path(article_pub2))
+    expect(page).to have_content("Private comment")
+    sign_in(user2)
+    visit(article_path(article_pub2))
+    expect(page).not_to have_content("Private comment")
+  end
+
+  it "should display private comments to admins" do
+    sign_in(user_adm)
+    visit(article_path(article_pub2))
+    expect(page).to have_content("Private comment")
+  end
+
+  it "should allow admins to delete private comments" do
+    sign_in(user_adm)
+    visit(article_path(article_pub2))
+    click_on("Destroy Comment")
+    expect(page).not_to have_content("Private comment")
   end
 end
