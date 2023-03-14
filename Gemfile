@@ -10,6 +10,8 @@ gem "sprockets-rails"
 
 gem "devise"
 
+gem "faker"
+
 gem "sqlite3", "~> 1.4"
 
 gem "puma", "~> 5.0"

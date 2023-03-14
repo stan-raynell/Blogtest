@@ -7,9 +7,9 @@
     <p>
       <%= comment.body %>
     </p>
-      <% if user_signed_in? and (comment.user == current_user) || current_user.admin? %>
-        <%= render partial: "comments/controls", :locals => {comment: comment } %>
-      <% end %>
+    <% if user_signed_in? and (comment.user == current_user) || current_user.admin? %>
+      <%= render partial: "comments/controls", :locals => {comment: comment } %>
+    <% end %>
   </div>
   <br>
 <% end %>
@@ -22,15 +22,16 @@
       </p>
       <hr>
       <p>
-        <div class="text-light">Archived.</div>
+        Archived.
+        <br>
         <br>
         <%= comment.body %>
       </p>
-        <%= render partial: "comments/controls", :locals => {comment: comment } %>
+      <%= render partial: "comments/controls", :locals => {comment: comment } %>
     </div>
     <br>
   <% elsif comment.private? and (comment.user == current_user) || current_user.admin? %>
-  <div class="p-3 bg-secondary text-light">
+    <div class="p-3 bg-secondary text-light">
       <p>
         Commented by:
         <%= link_to comment.user.email, comment.user %>
@@ -42,7 +43,7 @@
         <br>
         <%= comment.body %>
       </p>
-        <%= render partial: "comments/controls", :locals => {comment: comment } %>
+      <%= render partial: "comments/controls", :locals => {comment: comment } %>
     </div>
     <br>
   <% end %>
