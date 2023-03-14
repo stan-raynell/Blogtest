@@ -1,7 +1,7 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
     <%= form.label :body, "Comment text" %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, cols: 60, rows: 10 %>
   </p>
   <p>
     <%= form.hidden_field :user_id %>

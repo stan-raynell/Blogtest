@@ -1,11 +1,11 @@
 <% if comment.public? %>
   <div class="p-3 bg-light">
-    <%= render partial: "comments/header", :locals => {comment: comment } %>
+    <%= render partial: "comments/header", locals: {comment: comment } %>
     <p>
       <%= comment.body %>
     </p>
     <% if user_signed_in? and (comment.user == current_user) || current_user.admin? %>
-      <%= render partial: "comments/controls", :locals => {comment: comment } %>
+      <%= render partial: "comments/controls", locals: {comment: comment } %>
     <% end %>
   </div>
   <br>
@@ -13,28 +13,28 @@
 <% if user_signed_in? and comment.archived? %>
   <% return unless current_user.admin? %>
   <div class="p-3 bg-secondary text-warning">
-    <%= render partial: "comments/header", :locals => {comment: comment } %>
+    <%= render partial: "comments/header", locals: {comment: comment } %>
     <p>
       Archived.
       <br>
       <br>
       <%= comment.body %>
     </p>
-    <%= render partial: "comments/controls", :locals => {comment: comment } %>
+    <%= render partial: "comments/controls", locals: {comment: comment } %>
   </div>
   <br>
 <% end %>
 <% if user_signed_in? and comment.private? %>
   <% return unless (comment.user == current_user) || current_user.admin? %>
   <div class="p-3 bg-secondary text-light">
-    <%= render partial: "comments/header", :locals => {comment: comment } %>
+    <%= render partial: "comments/header", locals: {comment: comment } %>
     <p>
       Private.
       <br>
       <br>
       <%= comment.body %>
     </p>
-    <%= render partial: "comments/controls", :locals => {comment: comment } %>
+    <%= render partial: "comments/controls", locals: {comment: comment } %>
   </div>
   <br>
 <% end %>
