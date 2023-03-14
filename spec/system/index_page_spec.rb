@@ -5,25 +5,19 @@ RSpec.describe "Articles page" do
   let!(:user2) { create(:user) }
   let!(:user_adm) { create(:user, admin: true) }
   let!(:article_pub) do
-    create(:article,
-           title: "Yay!",
-           body: "Go Rails and GTFO!",
-           status: "public",
-           user: user1)
+    create(:article, title: "Yay!", body: "Go Rails and GTFO!",
+                     status: "public",
+                     user: user1)
   end
   let!(:article2) do
-    create(:article,
-           title: "Arch test",
-           body: "Archived testing",
-           status: "archived",
-           user: user1)
+    create(:article, title: "Arch test", body: "Archived testing",
+                     status: "archived",
+                     user: user1)
   end
   let!(:article_priv) do
-    create(:article,
-           title: "Priv test",
-           body: "Private testing",
-           status: "private",
-           user: user1)
+    create(:article, title: "Priv test", body: "Private testing",
+                     status: "private",
+                     user: user1)
   end
 
   it "should display articles" do

@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     return unless (@user == current_user) || current_user.admin?
-
     @user.destroy
     redirect_to root_path, status: :see_other
   end

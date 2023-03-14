@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-    return unless @comment.user == current_user || current_user.admin?
-
+    return unless (@comment.user == current_user) || current_user.admin?
     @comment.destroy
     redirect_to @article, status: :see_other
   end

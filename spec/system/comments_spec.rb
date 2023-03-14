@@ -5,25 +5,19 @@ RSpec.describe "Public comments interface" do
   let!(:user2) { create(:user) }
   let!(:user_adm) { create(:user, admin: true) }
   let!(:article_pub1) do
-    create(:article,
-           title: "Yay!",
-           body: "Go Rails and GTFO!",
-           status: "public",
-           user: user1)
+    create(:article, title: "Yay!", body: "Go Rails and GTFO!",
+                     status: "public",
+                     user: user1)
   end
   let!(:article_pub2) do
-    create(:article,
-           title: "Comm test",
-           body: "Comments testing",
-           status: "public",
-           user: user1)
+    create(:article, title: "Comm test", body: "Comments testing",
+                     status: "public",
+                     user: user1)
   end
   let!(:comment_pub1) do
-    create(:comment,
-           user: user1,
-           body: "Just testing!",
-           article: article_pub2,
-           status: "public")
+    create(:comment, user: user1, body: "Just testing!",
+                     article: article_pub2,
+                     status: "public")
   end
 
   it "allows to make a comment and saves it" do
