@@ -14,13 +14,16 @@ StringLiterals:
 Documentation:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 Metrics/BlockLength:
   Enabled: false
  
 Layout/LineLength:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
+Style/NumericLiterals:
   Enabled: false
 
 AllCops:

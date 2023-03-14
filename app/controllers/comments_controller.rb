@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
@@ -9,6 +11,7 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     return unless (@comment.user == current_user) || current_user.admin?
+
     @comment.destroy
     redirect_to @article, status: :see_other
   end

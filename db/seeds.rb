@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 admin = User.create(email: "dunn2000@mail.ru",
                     password: "Foobar",
                     admin: true)
-status = ["public", "private", "archived"]
-10.times do |n|
+status = %w[public private archived]
+10.times do
   article = Article.create!(title: Faker::Book.title,
-                  body: Faker::Lorem.sentence(word_count: 30),
-                  user: admin, status: status.sample)
+                            body: Faker::Lorem.sentence(word_count: 30),
+                            user: admin, status: status.sample)
   Comment.create!(body: Faker::Lorem.sentence(word_count: 10),
                   article: article, status: "archived", user: admin)
   Comment.create!(body: Faker::Lorem.sentence(word_count: 10),
@@ -13,7 +15,6 @@ status = ["public", "private", "archived"]
   Comment.create!(body: Faker::Lorem.sentence(word_count: 10),
                   article: article, status: "public", user: admin)
 end
-
 
 40.times do |n|
   email = "test-#{n + 1}@s.com"

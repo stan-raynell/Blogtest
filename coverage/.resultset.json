@@ -3,6 +3,8 @@
     "coverage": {
       "/home/stronge/blog/spec/helpers/comments_helper_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -22,6 +24,8 @@
       },
       "/home/stronge/blog/spec/rails_helper.rb": {
         "lines": [
+          null,
+          null,
           null,
           1,
           1,
@@ -92,6 +96,8 @@
       "/home/stronge/blog/config/environment.rb": {
         "lines": [
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -100,6 +106,8 @@
       },
       "/home/stronge/blog/config/application.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -126,6 +134,8 @@
       },
       "/home/stronge/blog/config/boot.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -134,6 +144,8 @@
       },
       "/home/stronge/blog/config/environments/test.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -201,6 +213,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -215,6 +229,7 @@
       },
       "/home/stronge/blog/config/initializers/content_security_policy.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -566,6 +581,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           null,
           null
@@ -573,6 +590,7 @@
       },
       "/home/stronge/blog/config/initializers/inflections.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -603,11 +621,14 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/home/stronge/blog/spec/factories/articles.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -619,6 +640,8 @@
       },
       "/home/stronge/blog/spec/factories/comments.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -630,6 +653,8 @@
       },
       "/home/stronge/blog/spec/factories/users.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           113,
@@ -641,6 +666,8 @@
       },
       "/home/stronge/blog/config/routes.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -654,6 +681,8 @@
       },
       "/home/stronge/blog/app/models/user.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -666,6 +695,8 @@
       },
       "/home/stronge/blog/app/models/application_record.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null
@@ -673,24 +704,32 @@
       },
       "/home/stronge/blog/app/helpers/application_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/stronge/blog/app/helpers/articles_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/stronge/blog/app/helpers/comments_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/stronge/blog/app/helpers/users_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           78,
@@ -703,6 +742,8 @@
       },
       "/home/stronge/blog/spec/support/devise.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -713,6 +754,8 @@
       },
       "/home/stronge/blog/spec/support/system.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           39,
@@ -722,6 +765,8 @@
       },
       "/home/stronge/blog/spec/helpers/users_helper_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -741,6 +786,8 @@
       },
       "/home/stronge/blog/spec/models/comment_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -762,6 +809,8 @@
       },
       "/home/stronge/blog/app/models/comment.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -774,6 +823,8 @@
       },
       "/home/stronge/blog/app/models/concerns/visible.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -799,6 +850,8 @@
       },
       "/home/stronge/blog/spec/models/user_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -808,6 +861,8 @@
       },
       "/home/stronge/blog/spec/requests/comments_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -819,6 +874,8 @@
       },
       "/home/stronge/blog/spec/requests/users_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -830,6 +887,8 @@
       },
       "/home/stronge/blog/spec/system/article_actions_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -958,6 +1017,8 @@
       },
       "/home/stronge/blog/spec/system/comments_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1102,6 +1163,8 @@
       },
       "/home/stronge/blog/spec/system/index_page_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1188,6 +1251,8 @@
       },
       "/home/stronge/blog/spec/system/user_profile_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1227,6 +1292,8 @@
       },
       "/home/stronge/blog/spec/system/users_index_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -1260,6 +1327,8 @@
       },
       "/home/stronge/blog/app/models/article.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -1273,6 +1342,8 @@
       },
       "/home/stronge/blog/app/controllers/articles_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -1305,6 +1376,7 @@
           1,
           1,
           1,
+          null,
           1,
           1,
           null,
@@ -1315,6 +1387,7 @@
           1,
           2,
           2,
+          null,
           2,
           2,
           null,
@@ -1329,6 +1402,8 @@
       },
       "/home/stronge/blog/app/controllers/application_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -1338,6 +1413,8 @@
       },
       "/home/stronge/blog/app/controllers/comments_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -1349,6 +1426,7 @@
           4,
           4,
           4,
+          null,
           4,
           4,
           null,
@@ -1363,6 +1441,8 @@
       },
       "/home/stronge/blog/app/controllers/users_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           6,
@@ -1375,6 +1455,7 @@
           1,
           2,
           2,
+          null,
           2,
           2,
           null,
@@ -1382,6 +1463,6 @@
         ]
       }
     },
-    "timestamp": 1678801717
+    "timestamp": 1678808637
   }
 }
