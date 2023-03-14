@@ -9,13 +9,13 @@
   <ol class="list-group-numbered">
     <% @users.each do |user| %>
       <li class="list-group-item">
-        <%= link_to user.email, user %>
+        <%= gravatar_for(user, size: 20) %>&nbsp<%= link_to user.email, user %>
         <% if current_user.admin? %>
           <span class="badge text-bg-warning">
             <%= link_to "Delete user", user, data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>,
+                  } %>
           <% end %>
         </span>
       </li>

@@ -9,7 +9,7 @@
     <% @articles.each do |article| %>
       <% if article.public? %>
         <li class="list-item">
-          <%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %></h4>
+          <%= gravatar_for(article.user, size: 40) %>&nbsp;<%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %></h4>
           <small>By:&nbsp<%= link_to article.user.email, article.user %></small>
         </li>
         <br>
@@ -17,13 +17,13 @@
       <% next unless user_signed_in? %>
       <% if article.archived? and current_user.admin? %>
         <li class="list-item">
-          <%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %> (archived)</h4>
+          <%= gravatar_for(article.user, size: 40) %>&nbsp;<%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %> (archived)</h4>
           <small>By:&nbsp<%= link_to article.user.email, article.user %></small>
         </li>
         <br>
       <% elsif article.private? and current_user.admin? || (current_user == article.user) %>
         <li class="list-item">
-          <%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %> (private)</h4>
+          <%= gravatar_for(article.user, size: 40) %>&nbsp;<%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %> (private)</h4>
           <small>By:&nbsp<%= link_to article.user.email, article.user %></small>
         </li>
         <br>

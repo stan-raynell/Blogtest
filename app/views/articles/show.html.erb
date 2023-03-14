@@ -9,13 +9,14 @@
 <% end %>
 <div class="container border py-3 my-3", style="text-align: left;">
   <div class="text-bg-info p-3">
-    <h2><%= @article.title %></h2>
+    <h2><%= gravatar_for(@article.user, size: 60) %>&nbsp<%= @article.title %></h2>
     <% if @article.archived? %>
       <h4>(Archived)</h4>
     <% elsif @article.private? %>
       <h4>(Private)</h4>
     <% end %>
-    <p><em>Written by <%= link_to @article.user.email, @article.user %>, on &nbsp;<%= @article.created_at.strftime("%d-%m-%Y") %></em></p>
+    <p><em>Written by <%= link_to @article.user.email, @article.user %>, 
+    on &nbsp;<%= @article.created_at.strftime("%d-%m-%Y, %H:%m") %></em></p>
   </div>
   <br>
   <p><%= @article.body %></p>

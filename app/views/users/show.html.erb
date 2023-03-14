@@ -4,21 +4,34 @@
       <div class="col-md-auto">
         <%= gravatar_for @user %><br>
         <%= @user.email %>
-      
-      <div class="col-md-auto" style="text-align: left">
-        <span class="badge text-bg-warning"><% if user_signed_in? and current_user == @user || current_user.admin? %>
-            <%= link_to "Delete profile", user_path(@user), data: {
+        <div class="col-md-auto" style="text-align: left">
+          <% if user_signed_in? and current_user == @user || current_user.admin? %>
+            <span class="badge text-bg-warning">
+              <%= link_to "Delete profile", user_path(@user), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %>
-          <% end %>
-        </span>
+            <% end %>
+          </span>
         </div>
       </div>
       <div class="col-md-auto" style="text-align: left">
         <% @user.articles.each do |article| %>
-          <%= article.created_at.strftime("%d-%m-%Y") %>
-          <%= link_to article.title, article %><br>
+          <% if article.public? %>
+            <%= article.created_at.strftime("%d-%m-%Y") %>
+            <%= link_to article.title, article %>
+            <br>
+          <% elsif article.archived? and current_user.admin? %>
+            <%= article.created_at.strftime("%d-%m-%Y") %>
+            <%= link_to article.title, article %>&nbsp;(Archived)
+            <br>
+          <% elsif article.private? and current_user == @user || current_user.admin? %>
+            <%= article.created_at.strftime("%d-%m-%Y") %>
+            <%= link_to article.title, article %>&nbsp;(Private)
+            <br>
+          <% else %>
+            <% next %>
+          <% end %>
         <% end %>
       </div>
     </div>

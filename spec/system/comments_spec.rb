@@ -39,26 +39,26 @@ RSpec.describe "Public comments interface" do
   it "allows to delete comments" do
     sign_in(user1)
     visit(article_path(article_pub2))
-    click_on("Destroy Comment")
+    click_on("Delete Comment")
     expect(page).not_to have_content("Just testing!")
   end
 
   it "should not display delete controls to another user" do
     sign_in(user2)
     visit(article_path(article_pub2))
-    expect(page).not_to have_content("Destroy")
+    expect(page).not_to have_content("Delete Comment")
   end
 
   it "should display delete controls for all comments to admins" do
     sign_in(user_adm)
     visit(article_path(article_pub2))
-    expect(page).to have_content("Destroy")
+    expect(page).to have_content("Delete Comment")
   end
 
   it "should allow admins to delete any comments" do
     sign_in(user_adm)
     visit(article_path(article_pub2))
-    click_on("Destroy Comment")
+    click_on("Delete Comment")
     expect(page).not_to have_content("Just testing!")
   end
 end
@@ -112,7 +112,7 @@ describe "Archived and private comments interface" do
   it "should allow admins to delete archived comments" do
     sign_in(user_adm)
     visit(article_path(article_pub1))
-    click_on("Destroy Comment")
+    click_on("Delete Comment")
     expect(page).not_to have_content("Archived comment")
   end
 
@@ -134,7 +134,7 @@ describe "Archived and private comments interface" do
   it "should allow admins to delete private comments" do
     sign_in(user_adm)
     visit(article_path(article_pub2))
-    click_on("Destroy Comment")
+    click_on("Delete Comment")
     expect(page).not_to have_content("Private comment")
   end
 end

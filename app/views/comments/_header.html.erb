@@ -1,0 +1,6 @@
+<p>
+  <%= gravatar_for(comment.user, size: 40) %>&nbsp;<%= link_to comment.user.email, comment.user %>
+  <br>
+   on &nbsp;<%= @article.created_at.strftime("%d-%m-%Y, %H:%m") %>
+</p>
+<hr>
