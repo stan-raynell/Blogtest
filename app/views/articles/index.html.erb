@@ -9,22 +9,22 @@
     <% @articles.each do |article| %>
       <% if article.public? %>
         <li class="list-item">
-          <h4><%= link_to article.title, article %></h4>
-          <small><%= link_to "By: #{article.user.email}", article.user %></small>
+          <%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %></h4>
+          <small>By:&nbsp<%= link_to article.user.email, article.user %></small>
         </li>
         <br>
       <% end %>
       <% next unless user_signed_in? %>
       <% if article.archived? and current_user.admin? %>
         <li class="list-item">
-          <h4><%= link_to article.title, article %> (archived)</h4>
-          <small><%= link_to "By: #{article.user.email}", article.user %></small>
+          <%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %> (archived)</h4>
+          <small>By:&nbsp<%= link_to article.user.email, article.user %></small>
         </li>
         <br>
       <% elsif article.private? and current_user.admin? || (current_user == article.user) %>
         <li class="list-item">
-          <h4><%= link_to article.title, article %> (private)</h4>
-          <small><%= link_to "By: #{article.user.email}", article.user %></small>
+          <%= article.created_at.strftime("%d-%m-%Y") %><h4><%= link_to article.title, article %> (private)</h4>
+          <small>By:&nbsp<%= link_to article.user.email, article.user %></small>
         </li>
         <br>
       <% end %>
