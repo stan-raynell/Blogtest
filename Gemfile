@@ -8,20 +8,6 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sass-rails"
 
-gem "overcommit"
-
-gem "fasterer"
-
-gem "reek"
-
-gem "rails_best_practices"
-
-gem "haml_lint", require: false
-
-gem "scss_lint", require: false
-
-gem "brakeman"
-
 gem "sprockets-rails"
 
 gem "devise"
