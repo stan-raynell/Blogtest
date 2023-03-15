@@ -3,8 +3,14 @@
 class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.create(comment_params.merge(user: current_user))
-    redirect_to @article
+    @comment = @article.comments.new(comment_params)
+    @comment.user = current_user
+    if @comment.save
+      redirect_to @article
+    else
+      flash.alert = "Empty comment!"
+      redirect_to article_path(@article), status: :unprocessable_entity
+    end
   end
 
   def destroy

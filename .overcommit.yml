@@ -1,0 +1,83 @@
+CommitMsg:
+  ALL:
+    requires_files: false
+    quiet: false
+EmptyMessage:
+    enabled: true
+    description: 'Check for empty commit message'
+    quiet: true
+TrailingPeriod:
+    enabled: true
+    description: 'Check for trailing periods in subject'
+PreCommit:
+  ALL:
+    problem_on_unmodified_line: report
+    requires_files: true
+    required: false
+    quiet: false
+AuthorEmail:
+    enabled: true
+    description: 'Check author email'
+    requires_files: false
+    required: true
+    quiet: true
+    pattern: '^[^@]+@.*$'
+AuthorName:
+    enabled: true
+    description: 'Check for author name'
+    requires_files: false
+    required: true
+    quiet: true
+MergeConflicts:
+    enabled: true
+    description: 'Check for merge conflicts'
+    quiet: true
+    required_executable: 'grep'
+    flags: ['-IHn', "^<<<<<<<[ \t]"]
+RailsSchemaUpToDate:
+    enabled: true
+    description: 'Check if database schema is up to date'
+    include:
+      - 'db/migrate/*.rb'
+      - 'db/schema.rb'
+TrailingWhitespace:
+    enabled: true
+    description: 'Check for trailing whitespace'
+    required_executable: 'grep'
+    flags: ['-IHn', "[ \t]$"]
+    include: '**/*.rb'
+  RuboCop:
+    enabled: true
+    on_warn: fail
+  Fasterer:
+    enabled: true
+    on_warn: fail
+  Reek:
+    enabled: true
+    on_warn: fail
+  RailsBestPractices:
+    enabled: true
+    on_warn: fail
+    command: ['rails_best_practices', '--config', 'config/rails_best_practices.yml']
+  HamlLint:
+    enabled: true
+    on_warn: fail
+  ScssLint:
+    enabled: true
+    on_warn: fail
+  HardTabs:
+    enabled: true
+    on_warn: fail
+  BundleCheck:
+    enabled: true
+    on_warn: fail
+  EsLint:
+    enabled: true
+    on_warn: fail
+  CoffeeLint:
+    enabled: true
+    on_warn: fail
+PrePush:
+  Brakeman:
+    enabled: true
+    on_warn: fail
