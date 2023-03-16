@@ -84,6 +84,12 @@ GEM
       sassc (>= 2.0.0)
     brakeman (5.4.1)
     builder (3.2.4)
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
+    bundler-leak (0.3.0)
+      bundler (>= 1.2.0, < 3)
+      thor (>= 0.18, < 2)
     capybara (3.38.0)
       addressable
       matrix
@@ -309,6 +315,8 @@ GEM
     thread_safe (0.3.6)
     tilt (2.1.0)
     timeout (0.3.2)
+    traceroute (0.8.1)
+      rails (>= 3.0.0)
     tty-which (0.4.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -348,6 +356,8 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass
   brakeman
+  bundler-audit
+  bundler-leak
   capybara
   cssbundling-rails (~> 1.1)
   debug
@@ -370,6 +380,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  traceroute
   turbo-rails
   tzinfo-data
   web-console
