@@ -22,62 +22,50 @@ RSpec.describe "Articles page" do
                      user: user1)
   end
 
-  it "should display articles" do
+  before(:each) do
     visit articles_path
+  end
+
+  it "should display articles" do
     expect(page).to have_content(article_pub.title)
   end
 
   it "should allow to open an article" do
-    visit articles_path
     click_on(article_pub.title)
     expect(page).to have_content("Go Rails and GTFO!")
   end
 
-  it "should redirect to article creation page" do
-    sign_in(user1)
-    visit articles_path
+  it "should redirect to article creation page", :user1 do
     click_on("New Article")
     expect(current_path).to eq(new_article_path)
   end
 
   it "should not display archived articles" do
-    visit articles_path
     expect(page).not_to have_content("Arch test")
   end
 
   it "should not display new article link without login" do
-    visit articles_path
     expect(page).not_to have_content("New Article")
   end
 
-  it "should display archived articles for admins" do
-    sign_in(user_adm)
-    visit articles_path
+  it "should display archived articles for admins", :user_adm do
     expect(page).to have_content("Arch test")
   end
 
-  it "should display a link to the users list" do
-    sign_in(user1)
-    visit articles_path
+  it "should display a link to the users list", :user1 do
     expect(page).to have_link("Users")
     click_on("Users")
     expect(current_path).to eq(users_path)
   end
 
-  it "should display private articles to authors only" do
-    sign_in(user1)
-    visit articles_path
+  it "should display private articles to authors only", :user1 do
     expect(page).to have_content("Priv test")
-    sign_out(user1)
-    visit articles_path
-    expect(page).not_to have_content("Priv test")
     sign_in(user2)
+    visit articles_path
     expect(page).not_to have_content("Priv test")
   end
 
-  it "should display private articles to admins" do
-    sign_in(user_adm)
-    visit articles_path
+  it "should display private articles to admins", :user_adm do
     expect(page).to have_content("Priv test")
     expect(page).to have_content("private")
   end

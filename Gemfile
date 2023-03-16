@@ -14,6 +14,14 @@ gem "devise"
 
 gem "faker"
 
+gem "reek"
+
+gem "rails_best_practices"
+
+gem "brakeman"
+
+gem "rubycritic", require: false
+
 gem "sqlite3", "~> 1.4"
 
 gem "puma", "~> 5.0"

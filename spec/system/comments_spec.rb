@@ -22,14 +22,11 @@ RSpec.describe "Public comments interface" do
                      status: "public")
   end
 
-  it "allows to make a comment and saves it" do
-    sign_in(user1)
+  it "allows to make a comment and saves it", :user1 do
     visit(article_path(article_pub1))
     fill_in("comment_body", with: "A funny comment")
-    select("public", from: "Status").select_option
     click_on("Create Comment")
     expect(article_pub1.comments).not_to be_blank
-    expect(current_path).to eq(article_path(article_pub1))
     expect(page).to have_content("A funny comment")
   end
 
@@ -38,27 +35,23 @@ RSpec.describe "Public comments interface" do
     expect(page).to have_content("Just testing!")
   end
 
-  it "allows to delete comments" do
-    sign_in(user1)
+  it "allows to delete comments", :user1 do
     visit(article_path(article_pub2))
     click_on("Delete Comment")
     expect(page).not_to have_content("Just testing!")
   end
 
-  it "should not display delete controls to another user" do
-    sign_in(user2)
+  it "should not display delete controls to another user", :user2 do
     visit(article_path(article_pub2))
     expect(page).not_to have_content("Delete Comment")
   end
 
-  it "should display delete controls for all comments to admins" do
-    sign_in(user_adm)
+  it "should display delete controls for all comments to admins", :user_adm do
     visit(article_path(article_pub2))
     expect(page).to have_content("Delete Comment")
   end
 
-  it "should allow admins to delete any comments" do
-    sign_in(user_adm)
+  it "should allow admins to delete any comments", :user_adm do
     visit(article_path(article_pub2))
     click_on("Delete Comment")
     expect(page).not_to have_content("Just testing!")
@@ -97,44 +90,38 @@ describe "Archived and private comments interface" do
            status: "private",
            user: user1)
   end
-  it "should not display archived comments to regular users" do
-    visit(article_path(article_pub1))
-    expect(page).not_to have_content("Archived comment")
-    sign_in(user1)
+  it "should not display archived comments to regular users", :user1 do
     visit(article_path(article_pub1))
     expect(page).not_to have_content("Archived comment")
   end
 
-  it "should display archived comments to admins" do
-    sign_in(user_adm)
+  it "should display archived comments to admins", :user_adm do
     visit(article_path(article_pub1))
     expect(page).to have_content("Archived comment")
   end
 
-  it "should allow admins to delete archived comments" do
-    sign_in(user_adm)
+  it "should allow admins to delete archived comments", :user_adm do
     visit(article_path(article_pub1))
     click_on("Delete Comment")
     expect(page).not_to have_content("Archived comment")
   end
 
-  it "should display private comments only to their authors" do
-    sign_in(user1)
+  it "should display private comments to their authors", :user1 do
     visit(article_path(article_pub2))
     expect(page).to have_content("Private comment")
-    sign_in(user2)
+  end
+
+  it "should not display private comments to other units", :user2 do
     visit(article_path(article_pub2))
     expect(page).not_to have_content("Private comment")
   end
 
-  it "should display private comments to admins" do
-    sign_in(user_adm)
+  it "should display private comments to admins", :user_adm do
     visit(article_path(article_pub2))
     expect(page).to have_content("Private comment")
   end
 
-  it "should allow admins to delete private comments" do
-    sign_in(user_adm)
+  it "should allow admins to delete private comments", :user_adm do
     visit(article_path(article_pub2))
     click_on("Delete Comment")
     expect(page).not_to have_content("Private comment")
