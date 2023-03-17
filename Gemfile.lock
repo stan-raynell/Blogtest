@@ -180,9 +180,6 @@ GEM
     orm_adapter (0.5.0)
     parser (3.2.1.1)
       ast (~> 2.4.1)
-    passenger (6.0.17)
-      rack
-      rake (>= 0.8.1)
     path_expander (1.1.1)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -344,7 +341,6 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jsbundling-rails (~> 1.1)
-  passenger
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   redis (~> 4.0)
