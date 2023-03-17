@@ -8,6 +8,10 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sass-rails"
 
+gem "sassc-rails"
+
+gem "bootstrap-sass"
+
 gem "sprockets-rails"
 gem 'autoprefixer-rails'
 
@@ -62,5 +66,4 @@ gem "jsbundling-rails", "~> 1.1"
 
 # Use Redis for Action Cable
 gem "autoprefixer-rails"
-gem "bootstrap-sass"
 gem "redis", "~> 4.0"

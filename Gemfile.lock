@@ -353,6 +353,7 @@ DEPENDENCIES
   rspec-rails
   rubycritic
   sass-rails
+  sassc-rails
   selenium-webdriver
   simplecov
   sprockets-rails
