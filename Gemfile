@@ -16,6 +16,8 @@ gem "faker"
 
 gem "reek"
 
+gem "rexml"
+
 gem "rubycritic", require: false
 
 gem "sqlite3", "~> 1.4"
