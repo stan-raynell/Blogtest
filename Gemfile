@@ -12,6 +12,7 @@ gem "sassc-rails"
 gem "bootstrap-sass"
 
 gem "sprockets-rails"
+gem 'autoprefixer-rails'
 
 gem "devise"
 
