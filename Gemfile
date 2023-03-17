@@ -9,6 +9,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sass-rails"
 
 gem "sprockets-rails"
+gem 'autoprefixer-rails'
 
 gem "devise"
 
