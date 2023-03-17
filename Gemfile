@@ -13,6 +13,8 @@ gem "bootstrap-sass"
 
 gem "sprockets-rails"
 
+gem "rubocop"
+
 gem "devise"
 
 gem "faker"
