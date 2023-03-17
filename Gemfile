@@ -20,6 +20,8 @@ gem "rubycritic", require: false
 
 gem "sqlite3", "~> 1.4"
 
+gem "passenger"
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"
