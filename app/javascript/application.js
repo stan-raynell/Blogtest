@@ -4,4 +4,3 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import { application } from "./application";
 //= require jquery
-//= require bootstrap-sprockets
