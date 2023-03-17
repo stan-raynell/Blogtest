@@ -16,17 +16,7 @@ gem "faker"
 
 gem "reek"
 
-gem "rails_best_practices"
-
-gem "brakeman"
-
 gem "rubycritic", require: false
-
-gem "traceroute"
-
-gem "bundler-audit"
-
-gem "bundler-leak"
 
 gem "sqlite3", "~> 1.4"
 
