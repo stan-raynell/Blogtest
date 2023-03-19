@@ -41,3 +41,5 @@
 
 
 /coverage/*
+coverage/index.html
+coverage/.resultset.json
