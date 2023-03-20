@@ -3,26 +3,26 @@
 require "simplecov"
 SimpleCov.start
 RSpec.configure do |config|
-  config.before(:example, :user1) do
+  config.before(:each, :user1) do
     sign_in(user1)
   end
-  config.before(:example, :user_adm) do
+  config.before(:each, :user_adm) do
     sign_in(user_adm)
   end
-  config.before(:example, :user2) do
+  config.before(:each, :user2) do
     sign_in(user2)
   end
-  config.before(:example, :pub1) do
-    visit article_path(article_pub1)
+  config.before(:each, :pub1) do
+    visit(article_path(article_pub1))
   end
-  config.before(:example, :pub2) do
-    visit article_path(article_pub2)
+  config.before(:each, :pub2) do
+    visit(article_path(article_pub2))
   end
-  config.before(:example, :priv) do
-    visit article_path(article_priv)
+  config.before(:each, :priv) do
+    visit(article_path(article_priv))
   end
-  config.before(:example, :arch) do
-    visit article_path(article_arch)
+  config.before(:each, :arch) do
+    visit(article_path(article_arch))
   end
 
   config.expect_with :rspec do |expectations|

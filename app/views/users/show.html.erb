@@ -2,7 +2,8 @@
   <div class="text-bg-light p-3">
     <div class="row">
       <div class="col-md-auto">
-        <%= gravatar_for @user %><br>
+        <%= gravatar_for @user %>
+        <br>
         <%= @user.email %>
         <div class="col-md-auto" style="text-align: left">
           <% if user_signed_in? and current_user == @user || current_user.admin? %>

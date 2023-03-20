@@ -22,37 +22,44 @@ RSpec.describe "Public comments interface" do
                      status: "public")
   end
 
-  it "allows to make a comment and saves it", :user1 do
-    visit(article_path(article_pub1))
+  it "should allow to make a comment and saves it", :user1, :pub1 do
+    refresh
     fill_in("comment_body", with: "A funny comment")
     click_on("Create Comment")
     expect(article_pub1.comments).not_to be_blank
     expect(page).to have_content("A funny comment")
   end
 
-  it "displays previously made comments" do
-    visit(article_path(article_pub2))
+  it "should display alert for empty comment", :user1, :pub1 do
+    refresh
+    click_on("Create Comment")
+    visit(article_path(article_pub1))
+    expect(page).to have_content("Empty comment!")
+  end
+
+  it "should display previously made comments", :pub2 do
+    refresh
     expect(page).to have_content("Just testing!")
   end
 
-  it "allows to delete comments", :user1 do
-    visit(article_path(article_pub2))
+  it "should allow to delete comments", :user1, :pub2 do
+    refresh
     click_on("Delete Comment")
     expect(page).not_to have_content("Just testing!")
   end
 
-  it "should not display delete controls to another user", :user2 do
-    visit(article_path(article_pub2))
+  it "should not display delete controls to another user", :user2, :pub2 do
+    refresh
     expect(page).not_to have_content("Delete Comment")
   end
 
-  it "should display delete controls for all comments to admins", :user_adm do
-    visit(article_path(article_pub2))
+  it "should display delete controls for all comments to admins", :user_adm, :pub2 do
+    refresh
     expect(page).to have_content("Delete Comment")
   end
 
-  it "should allow admins to delete any comments", :user_adm do
-    visit(article_path(article_pub2))
+  it "should allow admins to delete any comments", :user_adm, :pub2 do
+    refresh
     click_on("Delete Comment")
     expect(page).not_to have_content("Just testing!")
   end
@@ -90,39 +97,39 @@ describe "Archived and private comments interface" do
            status: "private",
            user: user1)
   end
-  it "should not display archived comments to regular users", :user1 do
-    visit(article_path(article_pub1))
+  it "should not display archived comments to regular users", :user1, :pub1 do
+    refresh
     expect(page).not_to have_content("Archived comment")
   end
 
-  it "should display archived comments to admins", :user_adm do
-    visit(article_path(article_pub1))
+  it "should display archived comments to admins", :user_adm, :pub1 do
+    refresh
     expect(page).to have_content("Archived comment")
   end
 
-  it "should allow admins to delete archived comments", :user_adm do
-    visit(article_path(article_pub1))
+  it "should allow admins to delete archived comments", :user_adm, :pub1 do
+    refresh
     click_on("Delete Comment")
     expect(page).not_to have_content("Archived comment")
   end
 
-  it "should display private comments to their authors", :user1 do
-    visit(article_path(article_pub2))
+  it "should display private comments to their authors", :user1, :pub2 do
+    refresh
     expect(page).to have_content("Private comment")
   end
 
-  it "should not display private comments to other units", :user2 do
-    visit(article_path(article_pub2))
+  it "should not display private comments to other units", :user2, :pub2 do
+    refresh
     expect(page).not_to have_content("Private comment")
   end
 
-  it "should display private comments to admins", :user_adm do
-    visit(article_path(article_pub2))
+  it "should display private comments to admins", :user_adm, :pub2 do
+    refresh
     expect(page).to have_content("Private comment")
   end
 
-  it "should allow admins to delete private comments", :user_adm do
-    visit(article_path(article_pub2))
+  it "should allow admins to delete private comments", :user_adm, :pub2 do
+    refresh
     click_on("Delete Comment")
     expect(page).not_to have_content("Private comment")
   end
