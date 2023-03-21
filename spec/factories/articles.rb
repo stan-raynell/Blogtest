@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :article do
-    title { "Goo" }
-    body { "This is test body" }
+    title {}
+    body {}
     user_id {}
   end
 end

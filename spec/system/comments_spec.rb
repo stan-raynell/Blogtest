@@ -22,7 +22,7 @@ RSpec.describe "Public comments interface" do
                      status: "public")
   end
 
-  it "should allow to make a comment and saves it", :user1, :pub1 do
+  it "should allow to make a comment and save it", :user1, :pub1 do
     refresh
     fill_in("comment_body", with: "A funny comment")
     click_on("Create Comment")
