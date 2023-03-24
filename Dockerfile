@@ -10,8 +10,7 @@ RUN apk add \
 tzdata \
 nodejs \
 sqlite
-WORKDIR /blog
+WORKDIR /app
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
-COPY . .
 EXPOSE 3000
 CMD [ "rails", "server", "-b", "0.0.0.0" ]
